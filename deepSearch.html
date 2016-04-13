@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html class="no-js" id="ng-app" ng-app="app">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;  charset=UTF-8"/>
+	<title>Search App</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="viewport"  content="width=device-width,initial-scale=0.0,minimum-scale=1.0,maximum-scale=0.0" />
+	<meta http-equiv='Pragma' content='no-cache' />
+	<meta http-equiv='content-Control' content='no-cache' />
+	<meta http-equiv='Cache-Control' content='no-cache' />
+	<meta http-equiv="content-language" content="en" />
+	<!-- CSS -->
+	<link href="assets/css/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">   
+	<link href="assets/css/style.css" rel="stylesheet" media="screen">   
+</head>
+   <body ng-controller="MainController">
+   	<div >
+   		 <div class="padded-row">
+          <div angucomplete-alt id="ex5" placeholder="Search projects" pause="500" selected-object="selectedProject" remote-url="assets/js/form.json" remote-url-request-formatter="remoteUrlRequestFn" remote-url-data-field="results" title-field="name, description" description-field="description" comment-field="topics" image-field="img" minlength="2" input-class="form-control form-control-small" match-class="highlight">
+          </div>
+        </div>
+        <div class="result">
+          <div class="" ng-show="selectedProject">
+            Result: <span class="bold-span">{{selectedProject.description}}</span>
+            <br/>
+            <span>Overall Ratings: {{selectedProject.originalObject.overallrating}}</span>
+            <span ng-repeat="n in selectedProject.originalObject.reviewparts">{{n.comment}}</span>
+          </div>
+        </div>
+
+      </div>
+
+
+<!--  LOCAL SEARCH -->
+     <!-- <div class="padded-row">
+          <div angucomplete-alt id="ex1" placeholder="Search countries" maxlength="50" pause="100" selected-object="selectedCountry" local-data="countries" search-fields="name" title-field="name" minlength="1" input-class="form-control form-control-small" match-class="highlight">
+          </div>
+        </div>
+        <div class="result">
+          <div ng-show="selectedCountry">
+            You selected <span class="bold-span">{{selectedCountry.originalObject.name}}</span> which has a country code of <span class="bold-span">{{selectedCountry.originalObject.code}}</span>
+          </div>
+        </div> -->
+
+		
+   	</div>
+
+
+
+
+
+   	<!-- Javascript files -->
+	<script type="text/javascript" src="assets/js/jquery-2.1.4.min.js"></script>
+	<script src="assets/js/angular.min1.4.6.js"></script>
+	  <script src="assets/js/angular-touch.min.js"></script>
+	  <script src="assets/js/angucomplete-alt.min.js"></script>
+	  <script src="assets/js/deepSearch.js"></script>
+   </body>
+</html>
